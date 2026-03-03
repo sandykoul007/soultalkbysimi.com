@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soul Talk by Simi | Emotional & Trauma Healing</title>
+<link rel="icon" href="cherry-blossom.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --rose: #c9726b;
+    --blush: #f0d9d5;
+    --cream: #faf5f0;
+    --warm-dark: #2a1f1d;
+    --muted: #8a7370;
+    --gold: #c9a96e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--warm-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(201,114,107,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--rose);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
+    line-height: 1.15;
+    color: var(--warm-dark);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.4s;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .hero-desc {
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 420px;
+    margin-bottom: 44px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.6s;
+  }
+
+  /* CTA Form */
+  .cta-box {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(42,31,29,0.08);
+    max-width: 420px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.8s;
+  }
+
+  .cta-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+  }
+
+  .cta-box p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid #e8ddd9;
+    border-radius: 10px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    color: var(--warm-dark);
+    background: var(--cream);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus { border-color: var(--rose); }
+  .form-group input::placeholder { color: #b8a9a5; }
+
+  .btn-primary {
+    width: 100%;
+    padding: 16px;
+    background: var(--rose);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 6px;
+  }
+
+  .btn-primary:hover { background: #b85f58; transform: translateY(-1px); }
+
+  .trust-line {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 14px;
+  }
+
+  /* Hero Right – decorative image panel */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right-inner {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f5e6e2 0%, #ead4ce 100%);
+  }
+
+  .hero-right-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9726b' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
+
+  .photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .photo-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(201,114,107,0.15);
+    border: 2px dashed var(--rose);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    color: var(--rose);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .photo-circle span { font-size: 2.5rem; margin-bottom: 8px; }
+
+  .name-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--warm-dark);
+    margin-bottom: 8px;
+  }
+
+  .name-badge em { color: var(--rose); font-style: italic; }
+
+  .tagline-small {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Floating badges */
+  .badge {
+    position: absolute;
+    background: white;
+    border-radius: 12px;
+    padding: 12px 18px;
+    box-shadow: 0 8px 30px rgba(42,31,29,0.1);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--warm-dark);
+    z-index: 3;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .badge-1 { top: 18%; left: 8%; animation-delay: 0s; }
+  .badge-2 { bottom: 22%; right: 6%; animation-delay: 2s; }
+  .badge .num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--rose); display: block; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── WHAT YOU'LL DISCOVER ── */
+  .section { padding: 90px 80px; }
+  .section-alt { background: white; }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    line-height: 1.2;
+    max-width: 580px;
+    margin-bottom: 50px;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .pillar {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 32px 28px;
+    border-top: 3px solid var(--rose);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .pillar:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(42,31,29,0.08); }
+
+  .pillar-icon { font-size: 2rem; margin-bottom: 16px; }
+
+  .pillar h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .pillar p {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  /* ── FOR WHO ── */
+  .for-who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .checks { list-style: none; }
+  .checks li {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0e8e5;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--warm-dark);
+  }
+
+  .checks li::before {
+    content: '✦';
+    color: var(--rose);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 70px;
+    align-items: start;
+  }
+
+  .about-img {
+    width: 280px;
+    height: 340px;
+    border-radius: 20px;
+    background: linear-gradient(160deg, #f0d9d5, #e8c5be);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--rose);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    border: 2px dashed rgba(201,114,107,0.4);
+    text-transform: uppercase;
+  }
+
+  .about-img span { font-size: 3rem; margin-bottom: 10px; }
+
+  .about-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--rose);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+    transition: gap 0.2s;
+  }
+
+  .social-link:hover { gap: 14px; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--warm-dark);
+    color: white;
+    text-align: center;
+    padding: 100px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,114,107,0.2) 0%, transparent 70%);
+  }
+
+  .final-cta h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.2;
+    max-width: 680px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+
+  .final-cta h2 em { color: var(--rose); font-style: italic; }
+
+  .final-cta p {
+    color: rgba(255,255,255,0.6);
+    font-size: 1rem;
+    margin-bottom: 44px;
+    position: relative;
+  }
+
+  .final-form {
+    display: flex;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .final-form input {
+    flex: 1;
+    min-width: 200px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+  }
+
+  .final-form input::placeholder { color: rgba(255,255,255,0.4); }
+  .final-form input:focus { border-color: var(--rose); }
+
+  .final-form button {
+    padding: 16px 28px;
+    background: var(--rose);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .final-form button:hover { background: #b85f58; }
+
+  /* Footer */
+  footer {
+    background: var(--warm-dark);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+    padding: 30px;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.8rem;
+  }
+
+  footer a { color: var(--rose); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 28px 50px; }
+    .hero-right { height: 320px; }
+    .section { padding: 60px 28px; }
+    .pillars { grid-template-columns: 1fr; }
+    .for-who-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-img { width: 100%; height: 220px; }
+    .final-cta { padding: 70px 28px; }
+    .badge-1, .badge-2 { display: none; }
+  }
+</style>
+    <script>
+        window.addEventListener("load", function() {
+            const form = document.getElementById('my-form');
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const data = new FormData(form);
+                const action = e.target.action;
+                fetch(action, {
+                method: 'POST',
+                body: data,
+                })
+                .then(() => {
+                alert("Thank You for Joining!");
+                })
+            });
+});
+    </script> 
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="eyebrow">Free Live Masterclass</p>
+    <h1>
+      Heal Your <em>Emotional Wounds</em> &amp; Reclaim Your Inner Peace
+    </h1>
+    <p class="hero-desc">
+      Join Simi Kaul for a transformative session where you'll discover how to release stored trauma, break free from emotional patterns, and return to wholeness — gently, safely, and at your own pace.
+    </p>
+
+    <div class="cta-box">
+      <h3>Save Your Seat — It's Free</h3>
+      <p>Limited spots available. Reserve yours today.</p>
+      <div class="form-group">
+        <input type="text" placeholder="Your Full Name" />
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Your Best Email" />
+      </div>
+      <div class="form-group">
+        <input type="tel" placeholder="WhatsApp Number (optional)" />
+      </div>
+      <button class="btn-primary">Yes, I Want to Heal &rarr;</button>
+      <p class="trust-line">🔒 Your information is safe. No spam, ever.</p>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-inner"></div>
+    <div class="photo-placeholder">
+      <div class="photo-circle">
+        <img src="simmi_1.jpeg" alt="Simi's Photo" style="width:190x;height:190px;border-radius:50%;object-fit:cover;" />
+      </div>
+      <div class="name-badge">Simi <em>Kaul</em></div>
+      <p class="tagline-small">Emotional &amp; Trauma Healing Coach</p>
+    </div>
+
+    <div class="badge badge-1">
+      <span class="num">500+</span>
+      Lives Transformed
+    </div>
+    <div class="badge badge-2">
+      <span class="num">✦</span>
+      Soul Talk Community
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHAT YOU'LL DISCOVER ══════════ -->
+<section class="section section-alt">
+  <p class="section-label">What You'll Discover</p>
+  <h2 class="section-title">Three Pillars of Deep Emotional Freedom</h2>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">🌿</div>
+      <h4>Release Stored Trauma</h4>
+      <p>Learn gentle, body-based techniques to safely process and release emotions that have been locked in your nervous system for years.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🪞</div>
+      <h4>Break Emotional Patterns</h4>
+      <p>Understand the root causes of repeating cycles in relationships, self-worth, and emotional reactivity — and how to compassionately shift them.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🕊️</div>
+      <h4>Return to Wholeness</h4>
+      <p>Reconnect with the version of yourself that existed before the pain — vibrant, grounded, and fully alive.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOR WHO ══════════ -->
+<section class="section">
+  <div class="for-who-grid">
+    <div>
+      <p class="section-label">Is This For You?</p>
+      <h2 class="section-title">You might be exactly who this is designed for</h2>
+      <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;">If any of these resonate, this masterclass was created with you in mind.</p>
+    </div>
+    <ul class="checks">
+      <li>You feel stuck in emotional patterns you can't seem to escape</li>
+      <li>Childhood wounds or past relationships still affect you today</li>
+      <li>You feel numb, anxious, or emotionally exhausted for no clear reason</li>
+      <li>You've tried therapy or self-help but still feel something is "missing"</li>
+      <li>You want to heal without reliving your trauma over and over</li>
+      <li>You're ready to feel whole, safe, and at peace within yourself</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT SIMI ══════════ -->
+<section class="section section-alt">
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="simmi_2.jpeg" alt="Simi's Photo" style="width:260px;height:320px;border-radius:20px;object-fit:cover;" />
+    </div>
+    <div class="about-content">
+      <p class="section-label">Your Guide</p>
+      <h2>Hi, I'm <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--rose);">Simi Kaul</em></h2>
+      <p>
+        I'm an emotional and trauma healing coach passionate about helping people come home to themselves. Through my platform <strong>Soul Talk by Simi</strong>, I've supported hundreds of individuals in understanding their emotional world, processing deep wounds, and building a life grounded in genuine peace.
+      </p>
+      <p>
+        My approach blends somatic awareness, inner child work, and compassionate inquiry — creating a space where healing feels safe, possible, and even beautiful.
+      </p>
+      <p>
+        I believe healing isn't about becoming someone new. It's about remembering who you always were.
+      </p>
+      <a class="social-link" href="https://www.instagram.com/soultalkbysimi" target="_blank">
+        📸 Follow @soultalkbysimi on Instagram →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FINAL CTA ══════════ -->
+<section class="final-cta">
+  <h2>You Deserve to Feel <em>Free.</em><br>Let's Begin Together.</h2>
+  <p>Reserve your free spot in the live masterclass today.</p>
+  
+    <form 
+    id="my-form"
+    method="POST"
+    action="https://script.google.com/macros/s/AKfycbyVFZSyrKTWDen0zKqSwIYP_ewJY_vD3_-PTFq_qsZcCtIJ4CukNpCWjBuOgAK8Gf7OsA/exec"
+    class="final-form"
+    >
+     <input name="Name" type="text" placeholder="Your Name" />
+    <input name="Email" type="email" placeholder="Your Email" />
+    <button>Join Free →</button>
+    </form>
+</section>
+
+<footer>
+  &copy; 2025 Soul Talk by Simi &nbsp;|&nbsp;
+  <a href="https://www.instagram.com/soultalkbysimi" target="_blank">@soultalkbysimi</a> &nbsp;|&nbsp;
+  All Rights Reserved
+</footer>
+
+</body>
+</html>
